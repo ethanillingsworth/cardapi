@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+html {
+	@apply h-dvh;
+}
+
+body {
+	@apply m-0 h-full w-full flex flex-col;
+}
+
+.content {
+	@apply flex flex-col m-2;
+}
