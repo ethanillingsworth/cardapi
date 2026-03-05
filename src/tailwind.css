@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+
+@source inline("gap-{1..96}");
+
 html {
 	@apply h-dvh;
 }
@@ -23,13 +26,30 @@ body {
 		@apply font-semibold text-2xl
 	}
 
+	h3 {
+		@apply font-semibold text-lg
+	}
+
 	.tag {
-		@apply rounded-full border-2 p-2 px-4 font-bold
+		@apply rounded p-2 px-4 font-bold
+	}
+
+	button {
+		@apply rounded w-fit font-bold p-2 px-4 bg-gray-600 hover:cursor-pointer hover:bg-gray-500/50
 	}
 }
 
-.card {
+.cardPage {
 	h2 {
 		@apply pt-4
+	}
+
+}
+
+.card {
+	@apply shadow-2xl/50 shadow-black transition hover:scale-105 w-[125px] h-[175px];
+
+	&.large {
+		@apply w-[250px] h-[350px];
 	}
 }

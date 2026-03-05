@@ -13,9 +13,13 @@ export class DataObject {
 		}
 	}
 
-	set() {}
+	set() { }
 }
 
 export class Card extends DataObject {
 	collectionPath = "cards";
+}
+
+export class Set extends DataObject {
+	collectionPath = "sets"
 }
