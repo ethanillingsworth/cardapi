@@ -5,9 +5,31 @@ html {
 }
 
 body {
-	@apply m-0 h-full w-full flex flex-col;
+	@apply m-0 h-full w-full flex flex-col bg-gray-700 text-white;
 }
 
 .content {
-	@apply flex flex-col m-2;
+	@apply flex flex-col m-8;
+
+	img {
+		@apply rounded
+	}
+
+	h1 {
+		@apply font-bold text-3xl
+	}
+
+	h2 {
+		@apply font-semibold text-2xl
+	}
+
+	.tag {
+		@apply rounded-full border-2 p-2 px-4 font-bold
+	}
+}
+
+.card {
+	h2 {
+		@apply pt-4
+	}
 }
