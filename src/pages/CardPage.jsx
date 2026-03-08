@@ -2,7 +2,7 @@ import { useParams } from "react-router";
 import { Col, Row } from "../components/Flex";
 import { useEffect, useState } from "react";
 import { Card, Set } from "../firebase/firebase";
-import VariantTag from "../components/VariantTag";
+import CardSetPage from "./CardSetPage";
 
 export default function CardPage() {
 	const { id } = useParams();
@@ -24,42 +24,25 @@ export default function CardPage() {
 			})
 		});
 	}, [id]);
+
 	return (
-		<>
-			<Row gap={8} className="cardPage">
-				<a href={`/`} target="_blank">
-					<img src="https://placehold.co/250x350" className="card large" />
-				</a>
-				<Col gap={4}>
-					<Row gap={4}>
-						<h1>#{data.number} | {data.name}</h1>
+		<CardSetPage heading={`#${data.number} | ${data.name}`} tags={data.tags}>
 
-						{Object.keys(data.variants || {}).map((key) => {
-
-							if (data.variants[key]) {
-								console.log(key)
-								return <VariantTag tagId={key} value={data.variants[key]} />
-							}
-						})}
-					</Row>
-
-					<Row gap={4}>
-						<button>Add to Collection</button>
-					</Row>
-
-					<h2>Players</h2>
-					<Row gap={4}>
-						<img src="https://placehold.co/250x350" className="card" />
-
-					</Row>
-
-					<h2>Set | {sData.name} ({sData.year})</h2>
-					<h3>Total Cards: {sData.totalCards}</h3>
-					<a href={`/set/${data.set}`}>
-						<button>View Set</button>
-					</a>
-				</Col>
+			<Row gap={4}>
+				<button>Add to Collection</button>
 			</Row>
-		</>
+
+			<h2>Players</h2>
+			<Row gap={4}>
+				<img src="https://placehold.co/250x350" className="card" />
+
+			</Row>
+
+			<h2>Set | {sData.name} ({sData.year})</h2>
+			<h3>Total Cards: {sData.totalCards}</h3>
+			<a href={`/set/${data.set}`}>
+				<button>View Set</button>
+			</a>
+		</CardSetPage>
 	);
 }
